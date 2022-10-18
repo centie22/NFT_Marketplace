@@ -51,7 +51,7 @@ modifier onlyOwner () {
 }
 /*Function set for only contract owner to update listing price*/ 
 function updateListingPrice(uint _listingPrice) public payable onlyOwner{
-    _listingPrice = listingPrice;
+    listingPrice = _listingPrice;
     listPrice = true;
 }
 
@@ -75,10 +75,9 @@ function seeListingPrice() public view returns(uint){
 }
 
 /*Function to get a listed NFT */
-function getAListedToken(uint NFTId) public view returns(listedTokens memory){
+function getAListedToken(uint NFTId) external view returns(listedTokens memory){
     return listedTokentrack[NFTId];
 }
-
 /*Function to get the most recent token Id */
 function currentListedTokenId() public view returns(uint){
     return _tokenId.current();
